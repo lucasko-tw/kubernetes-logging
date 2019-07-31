@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:1111111111:certificate/123123123,arn:aws:acm:eu-west-1:123123123:certificate/123123123
+    alb.ingress.kubernetes.io/inbound-cidrs: 1.2.3.4/32,5.6.7.8/32
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-11111111,subnet-22222222,subnet-33333333
+    alb.ingress.kubernetes.io/tags: Environment=prod,Team=devops
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
+  labels:
+    app: kibana
+    chart: kibana-3.2.3
+    heritage: Tiller
+    release: kibana
+  name: kibana-ingress
+  namespace: logging
+spec:
+  rules:
+  - host: kibana.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: kibana
+          servicePort: 443
+        path: /*

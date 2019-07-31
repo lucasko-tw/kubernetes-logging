@@ -1,0 +1,7 @@
+existingConfigMap: "fluent-bit-config"
+
+fullConfigMap: true
+
+backend:
+  es:
+    host: elasticsearch-client

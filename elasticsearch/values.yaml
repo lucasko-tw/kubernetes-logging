@@ -1,0 +1,16 @@
+master:
+  nodeSelector: {}
+  persistence:
+    enabled: false
+
+data:
+  nodeSelector: {}
+  persistence:
+    enabled: true
+    size: 60Gi
+    storageClass: gp2
+
+image:
+  tag: 6.7.0
+
+
