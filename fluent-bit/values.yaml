@@ -5,3 +5,9 @@ fullConfigMap: true
 backend:
   es:
     host: elasticsearch-client
+
+env:
+  - name: FLUENT_ELASTICSEARCH_HOST
+    value: "elasticsearch-client"
+  - name: FLUENT_ELASTICSEARCH_PORT
+    value: "9200"
